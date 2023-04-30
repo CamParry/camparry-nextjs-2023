@@ -1,4 +1,6 @@
 import { useSiteContext } from '@/contexts/Site';
+import { faMoon, faSun } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const DarkModeToggle = () => {
 	const { theme, setTheme } = useSiteContext();
@@ -16,10 +18,10 @@ export const DarkModeToggle = () => {
 				}`}
 			>
 				<div className="flex h-10 w-10 items-center justify-center text-2xl text-stone-50 md:h-12 md:w-12">
-					{/* <FontAwesomeIcon icon={faMoon} /> */}
+					<FontAwesomeIcon icon={faMoon} />
 				</div>
 				<div className="flex h-10 w-10 items-center justify-center text-2xl text-stone-50 md:h-12 md:w-12">
-					{/* <FontAwesomeIcon icon={faSun} /> */}
+					<FontAwesomeIcon icon={faSun} />
 				</div>
 			</div>
 		</button>
