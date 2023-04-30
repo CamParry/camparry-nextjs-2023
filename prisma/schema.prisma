@@ -1,0 +1,23 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  relationMode = "prisma"
+  url          = env("DATABASE_URL")
+}
+
+model Like {
+  ip        String
+  slug      String
+  rating    Int
+  createdAt DateTime @default(now())
+
+  @@unique([ip, slug])
+  @@index([ip, slug])
+  @@map("likes")
+}
