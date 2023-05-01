@@ -2,6 +2,8 @@ import { DarkModeToggle } from '@/components/DarkModeToggle';
 import { Face } from '@/components/Face';
 import { menu } from '@/content/menu';
 import { socials } from '@/content/socials';
+import { faHamburger } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -44,7 +46,7 @@ export const Header: FC = () => {
 						onClick={() => handleNavToggle()}
 						title="Toggle menu"
 					>
-						{/* <FontAwesomeIcon icon={faHamburger} /> */}
+						<FontAwesomeIcon icon={faHamburger} />
 					</button>
 					<div
 						className={`md:hidden fixed right-0 top-0 flex h-screen overflow-hidden transition-all duration-200 ease-out ${
