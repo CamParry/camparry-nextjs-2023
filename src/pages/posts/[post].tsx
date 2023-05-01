@@ -26,24 +26,24 @@ interface IParams extends ParsedUrlQuery {
 
 export default function Post({ post }: TProps) {
 	const router = useRouter();
-	const { slug } = router.query;
+	const { post: postSlug } = router.query;
 	const [likes, setLikes] = useState(0);
 	const [rating, setRating] = useState(0);
 
 	useEffect(() => {
 		(async () => {
-			const res = await fetch(`/api/likes/${slug}`);
+			const res = await fetch(`/api/likes/${postSlug}`);
 			const json = await res.json();
 			setLikes(json?.data?.likesCount ?? 0);
 			setRating(json?.data?.userLikesCount ?? 0);
 		})();
-	}, [slug]);
+	}, [postSlug]);
 
 	const handleLike = async () => {
 		if (rating < 3) {
 			setRating((r) => r + 1);
 			setLikes((r) => r + 1);
-			await fetch(`/api/likes/${slug}`, {
+			await fetch(`/api/likes/${postSlug}`, {
 				method: 'POST'
 			});
 		}
@@ -52,12 +52,12 @@ export default function Post({ post }: TProps) {
 		<Content>
 			<NextSeo title={post.title} description={post.excerpt} />
 			<div className="">
-				<div className="my-8 text-center text-xl md:my-12">
+				<div className="mt-8 text-center text-xl">
 					<h1 className="text-3xl md:text-4xl font-bold leading-tight dark:text-stone-200">
 						{post.title}
 					</h1>
 				</div>
-				<div className="mt-1 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+				<div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
 					<span className="font-semibold text-center text-pink-600 dark:text-pink-500">
 						{formatDate(post.date)}
 					</span>
@@ -70,10 +70,10 @@ export default function Post({ post }: TProps) {
 						</>
 					)}
 				</div>
-				<Prose className="mx-auto mb-6 md:mb-24 mt-12">
+				<Prose className="mx-auto mt-8">
 					<MDX source={post.mdx} />
 				</Prose>
-				<div className="text-center font-bold">
+				<div className="text-center font-bold mt-24">
 					<span>&copy; {format(new Date(), 'Y')} Cam Parry</span>
 				</div>
 				<div className="md:fixed md:right-[5vw] md:top-44">

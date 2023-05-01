@@ -26,6 +26,7 @@ export const Prose = ({
 				'prose-a:border-b',
 				'prose-hr:border-t-2',
 				'prose-pre:bg-grey-800',
+				'prose-ul:leading-normal',
 				'dark:prose-pre:bg-gray-900',
 				'prose-headings:text-slate-800',
 				'prose-hr:border-pink-600',

@@ -1,0 +1,82 @@
+---
+title: 'Website Go Live checklist'
+date: '2023-04-01'
+excerpt:
+    The checklist I use when building websites to make sure I haven't forgetten
+    anything
+cats: ['coding']
+---
+
+This is my "Go Live" checklist that I use when building websites to make sure I
+haven't forgetten anything. The checklist isn't for the process of building the
+website, but rather for confirming that all the important stuff (security,
+performance etc.) have been sorted out before the site goes live to the public.
+
+## Security:
+
+-   All dynamic output is escaped
+-   All input is sanitised correctly
+-   SSL certificate is configured
+-   Software and plugins are up to date
+-   Backups system is working
+-   404 error page is created
+
+## Performance:
+
+-   Images are optimised and correct size
+-   Static assets are bundled and minified
+
+## Accessiblilty
+
+-   Buttons and links have focus styles
+-   Images have correct alt labels
+-   Icon buttons have titles attributes
+-   Headers are in the correct order (h1 -> h2 -> h3)
+
+## SEO:
+
+-   Pages have meta titles and descriptions
+-   Analytics scripts are added
+-   Sitemap submitted to Google search console
+-   Search engine indexing is allowed (robots.txt)
+-   Copy has been proofread
+
+## Legal:
+
+-   Privacy Policy page exists
+-   Consent popup blocks cookies and scripts
+
+## Emails:
+
+-   Forms have recaptcha and or honeypot
+-   Forms have all been tested
+-   SMTP or Mail Service is configured
+-   Email sending has been test (including to address on different server)
+
+## Browsers/Device Testing:
+
+-   Chrome
+-   Firefox
+-   Safari
+-   Edge
+-   Android
+-   IOS
+
+## Other
+
+-   Uptime monitoring is enabled
+-   Lighthouse scores are looking good
+
+## WordPress:
+
+-   Wordpress is up to date
+-   Unused themes and plugins have been removed
+-   Debug mode is disabled and error logs deleted
+-   Admin user is not 'admin' and has a strong password
+-   Sensative custom post types and users are not publicly accessible (including
+    from api endpoints)
+
+## Woocommerce:
+
+-   Checkout has recaptcha enabled
+-   Payment gateway is configured and tested

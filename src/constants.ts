@@ -19,10 +19,6 @@ export const MENU = [
 	{
 		title: 'Coding',
 		path: '/coding'
-	},
-	{
-		title: 'About',
-		path: '/about'
 	}
 ];
 

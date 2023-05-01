@@ -48,6 +48,20 @@ export const Header: FC = () => {
 						id="desktop-nav"
 						className="hidden h-auto items-center gap-8 text-xl font-bold md:flex"
 					>
+						<li>
+							<Link
+								href="/"
+								className="relative block rounded-xl p-2 outline-none ring-pink-600 focus-visible:ring-4"
+							>
+								Home
+								{isActive('/') && (
+									<motion.div
+										layoutId="underline"
+										className="absolute bottom-0 left-0 h-1 w-full bg-pink-600"
+									/>
+								)}
+							</Link>
+						</li>
 						{MENU.map((item, key) => (
 							<li key={key}>
 								<Link
