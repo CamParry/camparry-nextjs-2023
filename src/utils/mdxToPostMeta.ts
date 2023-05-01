@@ -1,11 +1,7 @@
-import { TPost } from '@/types';
 import { parseMdx } from '@/utils/parseMdx';
 
-export const mdToPost = async (
-	slug: string,
-	markdown: string
-): Promise<TPost> => {
-	const { meta, mdx } = await parseMdx(markdown);
+export const mdxToPostMeta = async (slug: string, markdown: string) => {
+	const { meta } = await parseMdx(markdown);
 	return {
 		title: meta.title,
 		date: meta.date,
@@ -14,7 +10,6 @@ export const mdToPost = async (
 		cats: meta.cats ?? [],
 		tags: meta.tags ?? [],
 		slug: slug,
-		mdx: mdx,
 		url: 'posts/' + slug
 	};
 };

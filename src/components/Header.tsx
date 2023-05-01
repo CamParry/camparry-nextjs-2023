@@ -1,6 +1,6 @@
 import { DarkModeToggle } from '@/components/DarkModeToggle';
 import { Face } from '@/components/Face';
-import { categories } from '@/content/categories';
+import { menu } from '@/content/menu';
 import { socials } from '@/content/socials';
 import { faHamburger } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -52,14 +52,14 @@ export const Header: FC = () => {
 						id="desktop-nav"
 						className="hidden h-auto items-center gap-8 text-xl font-bold md:flex"
 					>
-						{categories.map((item, key) => (
+						{menu.map((item, key) => (
 							<li key={key}>
 								<Link
-									href={`/${item.slug}`}
+									href={item.path}
 									className="relative block rounded-xl p-2 outline-none ring-pink-600 focus-visible:ring-4"
 								>
 									{item.title}
-									{isActive(`/${item.slug}`) && (
+									{isActive(item.path) && (
 										<motion.div
 											layoutId="underline"
 											className="absolute bottom-0 left-0 h-1 w-full bg-pink-600"
@@ -78,17 +78,17 @@ export const Header: FC = () => {
 						<ul
 							className={`flex w-full list-none flex-col items-center justify-center gap-1 overflow-hidden bg-stone-50 text-3xl font-semibold dark:bg-slate-800`}
 						>
-							{categories.map((item, key) => (
+							{menu.map((item, key) => (
 								<li key={key}>
 									<Link
-										href={`/${item.slug}`}
+										href={item.path}
 										className="relative block rounded-xl px-2 py-2 outline-none ring-pink-600 focus-visible:ring-4"
 										onClick={() => {
 											navOpen && handleNavToggle();
 										}}
 									>
 										{item.title}
-										{isActive(`/${item.slug}`) && (
+										{isActive(item.path) && (
 											<div className="absolute bottom-0 left-0 h-1 w-full bg-pink-600" />
 										)}
 									</Link>

@@ -1,14 +1,14 @@
-export const categories = [
+export const menu = [
 	{
 		title: 'Writing',
-		slug: 'writing'
+		path: '/writing'
 	},
 	{
 		title: 'Coding',
-		slug: 'coding'
+		path: '/coding'
 	},
 	{
 		title: 'About',
-		slug: 'about'
+		path: '/about'
 	}
 ];

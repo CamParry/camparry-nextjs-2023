@@ -1,19 +1,26 @@
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 
-export type TCat = 'writing' | 'code';
-export type TTag = string;
-
 export type TPostMeta = {
 	title: string;
 	date: string;
 	excerpt: string;
 	time: string;
-	cats: TCat[];
-	tags: TTag[];
+	cats: string[];
+	tags: string[];
 	slug: string;
 	url: string;
 };
 
 export type TPost = TPostMeta & {
+	mdx: MDXRemoteSerializeResult;
+};
+
+export type TCatMeta = {
+	title: string;
+	description: string;
+	slug: string;
+};
+
+export type TCat = TCatMeta & {
 	mdx: MDXRemoteSerializeResult;
 };

@@ -3,7 +3,7 @@ import { MDX } from '@/components/MDX';
 import { PostItem } from '@/components/PostItem';
 import { PostList } from '@/components/PostList';
 import { TPostMeta } from '@/types';
-import { mdToPostMeta } from '@/utils/mdToPostMeta';
+import { mdxToPostMeta } from '@/utils/mdxToPostMeta';
 import { parseMdx } from '@/utils/parseMdx';
 import { sortPostsByDate } from '@/utils/sortPostsByDate';
 import fs from 'fs';
@@ -55,7 +55,7 @@ export const getStaticProps: GetStaticProps<TProps> = async () => {
 				'utf-8'
 			);
 			const slug = file.split('.')[0];
-			return await mdToPostMeta(slug, markdown);
+			return await mdxToPostMeta(slug, markdown);
 		})
 	);
 
