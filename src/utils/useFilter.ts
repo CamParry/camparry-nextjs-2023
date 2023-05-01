@@ -11,21 +11,13 @@ export const useFilter = () => {
 	};
 
 	const setFilter = (filter: string | null) => {
-		const query = filter ? { filter } : {};
-		router.push(
-			{
-				pathname: router.pathname,
-				query
-			},
-			undefined,
-			{ shallow: true }
-		);
+		router.query.filter = filter ?? '';
+		router.push(router);
 		_setFilter(filter);
 	};
 
 	useEffect(() => {
 		if (!router.isReady) return;
-		console.log(router.query.filter);
 		if (router.query.filter) {
 			_setFilter(String(router.query.filter));
 		}

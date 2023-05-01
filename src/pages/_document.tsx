@@ -1,8 +1,8 @@
-import { Html, Head, Main, NextScript } from 'next/document';
+import { Head, Html, Main, NextScript } from 'next/document';
 
 const Document = () => {
 	return (
-		<Html style={{ backgroundColor: 'rgb(30,41,59)' }}>
+		<Html style={{ backgroundColor: 'rgb(15,23,42)' }}>
 			<Head />
 			<body>
 				<Main />
