@@ -1,15 +1,15 @@
 import {
 	faGithub,
 	faInstagram,
-	faLinkedinIn
+	faLinkedinIn,
+	faTwitter
 } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 export const socials = [
 	{
-		title: 'Send me an Email',
-		url: 'mailto:hello@camparry.com',
-		icon: faEnvelope
+		title: 'Chat with me on Twitter',
+		url: 'https://twitter.com/camjparry',
+		icon: faTwitter
 	},
 	{
 		title: 'Follow me on Instagram',
@@ -17,7 +17,7 @@ export const socials = [
 		icon: faInstagram
 	},
 	{
-		title: 'Checkout my GitHub',
+		title: 'Read my code on GitHub',
 		url: 'https://github.com/camparry',
 		icon: faGithub
 	},

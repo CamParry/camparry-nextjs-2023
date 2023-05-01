@@ -24,10 +24,14 @@ export const PostItem = ({ post }: TProps) => {
 					<span className="text-sm font-semibold text-pink-600 dark:text-pink-400">
 						{formatDate(post.date)}
 					</span>
-					<span className="h-px w-12 md:h-4 md:w-px bg-stone-200" />
-					<span className="text-sm font-semibold text-pink-600 dark:text-pink-400">
-						{post.tags.join(', ')}
-					</span>
+					{post.tags.length > 0 && (
+						<>
+							<span className="h-px w-12 md:h-4 md:w-px bg-stone-200" />
+							<span className="text-sm font-semibold text-pink-600 dark:text-pink-400">
+								{post.tags.join(', ')}
+							</span>
+						</>
+					)}
 				</div>
 				<p className="mt-1 text-lg">{post.excerpt}</p>
 			</motion.a>
