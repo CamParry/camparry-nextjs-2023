@@ -15,7 +15,7 @@ export const Layout = ({ children }: TProps) => {
 
 	return (
 		<div className={theme === 'dark' ? 'dark' : ''}>
-			<div className="flex min-h-screen flex-col bg-stone-100 px-[5vw] font-body text-slate-700 transition-colors dark:bg-slate-900 dark:text-stone-100">
+			<div className="flex min-h-screen flex-col bg-stone-100 px-[5vw] font-body text-slate-700 transition-colors dark:bg-slate-800 dark:text-stone-100">
 				<Header />
 				<AnimatePresence mode="wait">
 					<motion.main
