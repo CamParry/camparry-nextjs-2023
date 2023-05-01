@@ -1,6 +1,6 @@
 import { DarkModeToggle } from '@/components/DarkModeToggle';
-import { socials } from '@/content/socials';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { socials } from '../../content/socials';
 
 export const Footer = () => {
 	return (

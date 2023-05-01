@@ -1,13 +1,13 @@
 import { DarkModeToggle } from '@/components/DarkModeToggle';
 import { Face } from '@/components/Face';
-import { menu } from '@/content/menu';
-import { socials } from '@/content/socials';
 import { faHamburger } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FC, useState } from 'react';
+import { menu } from '../../content/menu';
+import { socials } from '../../content/socials';
 
 export const Header: FC = () => {
 	const [navOpen, setNavOpen] = useState(false);
