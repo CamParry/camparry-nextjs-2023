@@ -28,10 +28,7 @@ export const Header: FC = () => {
 					href="/"
 					className="group relative z-10 flex items-center gap-2 rounded-xl outline-none ring-pink-600 focus-visible:ring-4 md:gap-4"
 				>
-					<Face
-						className="h-12 fill-slate-800 dark:fill-stone-50"
-						leftEyeClass="transition-transform duration-100 origin-[0%_35%] group-hover:scale-y-0"
-					/>
+					<Face />
 					<h1 className="text-dark translate-y-[3px] text-2xl sm:text-3xl font-bold text-cyan-800 dark:text-cyan-200 md:text-4xl">
 						Cam Parry
 					</h1>

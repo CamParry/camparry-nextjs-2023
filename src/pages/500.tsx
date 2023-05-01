@@ -1,18 +1,30 @@
 import { Content } from '@/components/Content';
 import { Error } from '@/components/Error';
+import { ERROR_404_PATH, ERROR_500_PATH } from '@/constants';
+import { parseMdx } from '@/utils/parseMdx';
+import fs from 'fs';
+import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
+import path from 'path';
 
-export default function Error500() {
+type TProps = {
+	title: string;
+	description: string;
+};
+
+export default function Error500({ title, description }: TProps) {
 	return (
 		<Content>
-			<NextSeo
-				title="500"
-				description="Crikey, the server must have gone home for the day"
-			/>
-			<Error
-				title="500"
-				text="Crikey, the server must have gone home for the day..."
-			/>
+			<NextSeo title={title} description={description} />
+			<Error title={title} text={description} />
 		</Content>
 	);
 }
+
+export const getStaticProps: GetStaticProps<TProps> = async () => {
+	const markdown = fs.readFileSync(path.join(ERROR_500_PATH), 'utf-8');
+	const { meta } = await parseMdx(markdown);
+	return {
+		props: { title: meta.title, description: meta.description }
+	};
+};
