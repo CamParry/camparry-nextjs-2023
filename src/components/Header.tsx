@@ -1,13 +1,12 @@
 import { DarkModeToggle } from '@/components/DarkModeToggle';
 import { Face } from '@/components/Face';
+import { MENU, SOCIALS } from '@/constants';
 import { faHamburger } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FC, useState } from 'react';
-import { menu } from '../../content/menu';
-import { socials } from '../../content/socials';
 
 export const Header: FC = () => {
 	const [navOpen, setNavOpen] = useState(false);
@@ -52,7 +51,7 @@ export const Header: FC = () => {
 						id="desktop-nav"
 						className="hidden h-auto items-center gap-8 text-xl font-bold md:flex"
 					>
-						{menu.map((item, key) => (
+						{MENU.map((item, key) => (
 							<li key={key}>
 								<Link
 									href={item.path}
@@ -78,7 +77,7 @@ export const Header: FC = () => {
 						<ul
 							className={`flex w-full list-none flex-col items-center justify-center gap-1 overflow-hidden bg-stone-50 text-3xl font-semibold dark:bg-slate-800`}
 						>
-							{menu.map((item, key) => (
+							{MENU.map((item, key) => (
 								<li key={key}>
 									<Link
 										href={item.path}
@@ -95,7 +94,7 @@ export const Header: FC = () => {
 								</li>
 							))}
 							<li className="mt-12 flex justify-end gap-4">
-								{socials.map((item, key) => (
+								{SOCIALS.map((item, key) => (
 									<Link
 										key={key}
 										href={item.url}
