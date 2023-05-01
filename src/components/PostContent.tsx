@@ -39,18 +39,18 @@ export const PostContent = ({ post }: TProps) => {
 	return (
 		<div className="">
 			<div className="my-8 text-center text-xl md:my-12">
-				<h1 className="text-2xl sm:text-3xl  md:text-4xl font-bold leading-tight dark:text-stone-200">
+				<h1 className="text-3xl md:text-4xl font-bold leading-tight dark:text-stone-200">
 					{post.title}
 				</h1>
 			</div>
 			<div className="mt-1 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
-				<span className="font-semibold text-center text-pink-600 dark:text-pink-400">
+				<span className="font-semibold text-center text-pink-600 dark:text-pink-500">
 					{formatDate(post.date)}
 				</span>
 				{post.tags.length > 0 && (
 					<>
 						<span className="text-xl h-px w-12 sm:h-4 sm:w-px bg-stone-200 dark:bg-stone-200" />
-						<span className="font-semibold text-center text-pink-600 dark:text-pink-400">
+						<span className="font-semibold text-center text-pink-600 dark:text-pink-500">
 							{post.tags.join(', ')}
 						</span>
 					</>
@@ -59,10 +59,8 @@ export const PostContent = ({ post }: TProps) => {
 			<Prose className="mx-auto mb-6 md:mb-24 mt-12">
 				<MDX source={post.mdx} />
 			</Prose>
-			<div className="flex justify-center items-center py-12">
-				<p className="text-stone-800 dark:text-stone-200">
-					&copy; {format(new Date(), 'Y')} Cam Parry
-				</p>
+			<div className="text-center font-bold">
+				<span>&copy; {format(new Date(), 'Y')} Cam Parry</span>
 			</div>
 			<div className="md:fixed md:right-[5vw] md:top-44">
 				<LikeButton

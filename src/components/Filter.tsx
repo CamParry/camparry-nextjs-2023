@@ -10,7 +10,7 @@ export const Filter = ({ tags, filter, setFilter }: TProps) => {
 			<li>
 				<button
 					onClick={() => setFilter(null)}
-					className={`flex h-8 items-center justify-center rounded-lg bg-stone-200 px-4 pt-0.5 font-bold leading-none ${
+					className={`flex h-8 items-center justify-center rounded-lg px-4 pt-0.5 font-bold leading-none ${
 						!filter
 							? ' bg-pink-600 text-stone-50 dark:bg-pink-600 dark:text-stone-50'
 							: ' bg-stone-200 text-cyan-800 dark:bg-slate-700 dark:text-stone-50'
@@ -23,7 +23,7 @@ export const Filter = ({ tags, filter, setFilter }: TProps) => {
 				<li key={idx}>
 					<button
 						onClick={() => setFilter(tag)}
-						className={`flex h-8 items-center justify-center rounded-lg bg-stone-200 px-4 pt-0.5 font-bold leading-none ${
+						className={`flex h-8 items-center justify-center rounded-lg px-4 pt-0.5 font-bold leading-none ${
 							filter === tag
 								? ' bg-pink-600 text-stone-50 dark:bg-pink-600 dark:text-stone-50'
 								: ' bg-stone-200 text-cyan-800 dark:bg-slate-700 dark:text-stone-50'

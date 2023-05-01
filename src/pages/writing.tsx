@@ -1,9 +1,11 @@
 import { Content } from '@/components/Content';
 import { Filter } from '@/components/Filter';
+import { NoResults } from '@/components/NoResults';
 import { PageHeader } from '@/components/PageHeader';
 import { PageTitle } from '@/components/PageTitle';
 import { PostItem } from '@/components/PostItem';
 import { PostList } from '@/components/PostList';
+import { POSTS_DIR } from '@/consts';
 import { TPostMeta } from '@/types';
 import { getTagsFromPosts } from '@/utils/getTagsFromPosts';
 import { mdToPostMeta } from '@/utils/mdToPostMeta';
@@ -27,18 +29,17 @@ export default function Writing({ posts, tags }: Props) {
 			<PageHeader>
 				<PageTitle>Writing</PageTitle>
 			</PageHeader>
-			{posts.length > 0 && (
-				<Filter tags={tags} filter={filter} setFilter={setFilter} />
-			)}
-			<PostList>
-				{posts.filter(filterPosts).map((post) => (
-					<PostItem key={post.slug} post={post} />
-				))}
-			</PostList>
-			{posts.length === 0 && (
-				<p className="w-full text-center text-2xl font-bold">
-					Coming soon!
-				</p>
+			{posts.length > 0 ? (
+				<>
+					<Filter tags={tags} filter={filter} setFilter={setFilter} />
+					<PostList>
+						{posts.filter(filterPosts).map((post) => (
+							<PostItem key={post.slug} post={post} />
+						))}
+					</PostList>
+				</>
+			) : (
+				<NoResults />
 			)}
 		</Content>
 	);
@@ -46,13 +47,15 @@ export default function Writing({ posts, tags }: Props) {
 
 export const getStaticProps: GetStaticProps<Props> = async (props) => {
 	const category = 'writing';
-	const postsDir = 'src/content/posts';
 
-	const postFiles = fs.readdirSync(postsDir);
+	const postFiles = fs.readdirSync(POSTS_DIR);
 
 	const posts = await Promise.all(
 		postFiles.map((file) => {
-			const content = fs.readFileSync(path.join(postsDir, file), 'utf-8');
+			const content = fs.readFileSync(
+				path.join(POSTS_DIR, file),
+				'utf-8'
+			);
 			const slug = file.split('.')[0];
 			return mdToPostMeta(slug, content);
 		})

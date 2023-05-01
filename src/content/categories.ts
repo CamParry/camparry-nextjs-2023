@@ -6,5 +6,9 @@ export const categories = [
 	{
 		title: 'Coding',
 		slug: 'coding'
+	},
+	{
+		title: 'About',
+		slug: 'about'
 	}
 ];

@@ -21,13 +21,13 @@ export const PostItem = ({ post }: TProps) => {
 					{post.title}
 				</h2>
 				<div className="mt-1 flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
-					<span className="text-sm font-semibold text-pink-600 dark:text-pink-400">
+					<span className="text-sm font-semibold text-pink-600 dark:text-pink-500">
 						{formatDate(post.date)}
 					</span>
 					{post.tags.length > 0 && (
 						<>
 							<span className="h-px w-12 md:h-4 md:w-px bg-stone-200" />
-							<span className="text-sm font-semibold text-pink-600 dark:text-pink-400">
+							<span className="text-sm font-semibold text-pink-600 dark:text-pink-500">
 								{post.tags.join(', ')}
 							</span>
 						</>

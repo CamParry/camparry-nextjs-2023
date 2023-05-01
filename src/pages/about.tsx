@@ -25,9 +25,9 @@ export default function Writing({ posts, tags }: Props) {
 	const { filter, setFilter, filterPosts } = useFilter();
 	return (
 		<Content>
-			<NextSeo title="Coding" description="Coding by Cam Parry" />
+			<NextSeo title="About" description="About Cam Parry" />
 			<PageHeader>
-				<PageTitle>Coding</PageTitle>
+				<PageTitle>About</PageTitle>
 			</PageHeader>
 			{posts.length > 0 ? (
 				<>
@@ -46,7 +46,7 @@ export default function Writing({ posts, tags }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async (props) => {
-	const category = 'code';
+	const category = 'about';
 
 	const postFiles = fs.readdirSync(POSTS_DIR);
 

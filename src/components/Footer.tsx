@@ -16,7 +16,7 @@ export const Footer = () => {
 							href={item.url}
 							title={item.title}
 							target="_blank"
-							className="flex h-12 w-12 items-center justify-center rounded-full bg-cyan-900 text-2xl text-stone-50 outline-none ring-pink-500 transition-all duration-300 hover:bg-cyan-800 focus-visible:ring-4 active:scale-90 dark:bg-cyan-700 hover:dark:bg-cyan-800"
+							className="flex h-12 w-12 items-center justify-center rounded-full bg-cyan-900 text-2xl text-stone-50 outline-none ring-pink-600 transition-all duration-300 hover:bg-cyan-800 focus-visible:ring-4 active:scale-90 dark:bg-cyan-700 hover:dark:bg-cyan-800"
 						>
 							<FontAwesomeIcon icon={item.icon} />
 						</a>
