@@ -2,6 +2,7 @@ import { Content } from '@/components/Content';
 import { LikeButton } from '@/components/LikeButton';
 import { MDX } from '@/components/MDX';
 import { Prose } from '@/components/Prose';
+import { POSTS_DIR } from '@/constants';
 import type { TPost } from '@/types';
 import { filesToPaths } from '@/utils/filesToPaths';
 import { formatDate } from '@/utils/formatDate';
@@ -22,8 +23,6 @@ type TProps = {
 interface IParams extends ParsedUrlQuery {
 	post: string;
 }
-
-const dataDir = 'src/content/posts';
 
 export default function Post({ post }: TProps) {
 	const router = useRouter();
@@ -91,7 +90,7 @@ export default function Post({ post }: TProps) {
 
 export const getStaticPaths: GetStaticPaths<IParams> = () => {
 	return {
-		paths: filesToPaths(fs.readdirSync(dataDir)),
+		paths: filesToPaths(fs.readdirSync(POSTS_DIR)),
 		fallback: false
 	};
 };
@@ -103,7 +102,7 @@ export const getStaticProps: GetStaticProps<TProps, IParams> = async (
 	if (!postSlug) return { notFound: true };
 
 	const content = fs.readFileSync(
-		path.join(dataDir, `${postSlug}.mdx`),
+		path.join(POSTS_DIR, `${postSlug}.mdx`),
 		'utf-8'
 	);
 
