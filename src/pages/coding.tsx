@@ -27,12 +27,19 @@ export default function Writing({ posts, tags }: Props) {
 			<PageHeader>
 				<PageTitle>Coding</PageTitle>
 			</PageHeader>
-			<Filter tags={tags} filter={filter} setFilter={setFilter} />
+			{posts.length > 0 && (
+				<Filter tags={tags} filter={filter} setFilter={setFilter} />
+			)}
 			<PostList>
 				{posts.filter(filterPosts).map((post) => (
 					<PostItem key={post.slug} post={post} />
 				))}
 			</PostList>
+			{posts.length === 0 && (
+				<p className="w-full text-center text-2xl font-bold">
+					Coming soon!
+				</p>
+			)}
 		</Content>
 	);
 }
