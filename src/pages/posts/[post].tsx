@@ -25,29 +25,29 @@ interface IParams extends ParsedUrlQuery {
 }
 
 export default function Post({ post }: TProps) {
-	const router = useRouter();
-	const { post: postSlug } = router.query;
-	const [likes, setLikes] = useState(0);
-	const [rating, setRating] = useState(0);
+	// const router = useRouter();
+	// const { post: postSlug } = router.query;
+	// const [likes, setLikes] = useState(0);
+	// const [rating, setRating] = useState(0);
 
-	useEffect(() => {
-		(async () => {
-			const res = await fetch(`/api/likes/${postSlug}`);
-			const json = await res.json();
-			setLikes(json?.data?.likesCount ?? 0);
-			setRating(json?.data?.userLikesCount ?? 0);
-		})();
-	}, [postSlug]);
+	// useEffect(() => {
+	// 	(async () => {
+	// 		const res = await fetch(`/api/likes/${postSlug}`);
+	// 		const json = await res.json();
+	// 		setLikes(json?.data?.likesCount ?? 0);
+	// 		setRating(json?.data?.userLikesCount ?? 0);
+	// 	})();
+	// }, [postSlug]);
 
-	const handleLike = async () => {
-		if (rating < 3) {
-			setRating((r) => r + 1);
-			setLikes((r) => r + 1);
-			await fetch(`/api/likes/${postSlug}`, {
-				method: 'POST'
-			});
-		}
-	};
+	// const handleLike = async () => {
+	// 	if (rating < 3) {
+	// 		setRating((r) => r + 1);
+	// 		setLikes((r) => r + 1);
+	// 		await fetch(`/api/likes/${postSlug}`, {
+	// 			method: 'POST'
+	// 		});
+	// 	}
+	// };
 	return (
 		<Content>
 			<NextSeo title={post.title} description={post.excerpt} />
@@ -76,13 +76,13 @@ export default function Post({ post }: TProps) {
 				<div className="text-center font-bold mt-24">
 					<span>&copy; {format(new Date(), 'Y')} Cam Parry</span>
 				</div>
-				<div className="md:fixed md:right-[5vw] md:top-44">
+				{/* <div className="md:fixed md:right-[5vw] md:top-44">
 					<LikeButton
 						rating={rating}
 						likes={likes}
 						handleLike={handleLike}
 					/>
-				</div>
+				</div> */}
 			</div>
 		</Content>
 	);
