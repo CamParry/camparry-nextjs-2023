@@ -4,6 +4,7 @@ import { SiteProvider } from '@/contexts/Site';
 import '@/global.css';
 import { config as fontAweConfig } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import { Analytics } from '@vercel/analytics/react';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
 
@@ -21,6 +22,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 				<Component {...pageProps} />
 			</Layout>
 			<ConsoleChat />
+			<Analytics />
 		</SiteProvider>
 	);
 };
