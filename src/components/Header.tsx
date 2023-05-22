@@ -1,6 +1,7 @@
 import { DarkModeToggle } from '@/components/DarkModeToggle';
 import { Face } from '@/components/Face';
 import { MENU, SOCIALS } from '@/constants';
+import { c } from '@/utils/c';
 import { faHamburger } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from 'framer-motion';
@@ -38,7 +39,29 @@ export const Header: FC = () => {
 						<DarkModeToggle />
 					</div>
 					<button
-						className="group z-10 flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-cyan-900 text-2xl text-stone-50 outline-none ring-pink-600 transition-all duration-300 focus-visible:ring-4 active:scale-90 dark:bg-cyan-700 dark:hover:bg-cyan-800 md:hidden"
+						className={c(
+							'group',
+							'z-10',
+							'flex',
+							'h-10',
+							'w-10',
+							'items-center',
+							'justify-center',
+							'overflow-hidden',
+							'rounded-full',
+							'bg-cyan-900',
+							'text-2xl',
+							'text-stone-50',
+							'outline-none',
+							'ring-pink-600',
+							'transition-all',
+							'duration-300',
+							'focus-visible:ring-4',
+							'active:scale-90',
+							'dark:bg-cyan-700',
+							'dark:hover:bg-cyan-800',
+							'md:hidden'
+						)}
 						onClick={() => handleNavToggle()}
 						title="Toggle menu"
 					>
@@ -86,13 +109,35 @@ export const Header: FC = () => {
 						}`}
 					>
 						<ul
-							className={`flex w-full list-none flex-col items-center justify-center gap-1 overflow-hidden bg-stone-50 text-3xl font-semibold dark:bg-slate-800`}
+							className={c(
+								'flex',
+								'w-full',
+								'list-none',
+								'flex-col',
+								'items-center',
+								'justify-center',
+								'gap-1',
+								'overflow-hidden',
+								'bg-stone-50',
+								'text-3xl',
+								'font-semibold',
+								'dark:bg-slate-800'
+							)}
 						>
 							{MENU.map((item, key) => (
 								<li key={key}>
 									<Link
 										href={item.path}
-										className="relative block rounded-xl px-2 py-2 outline-none ring-pink-600 focus-visible:ring-4"
+										className={c(
+											'relative',
+											'block',
+											'rounded-xl',
+											'px-2',
+											'py-2',
+											'outline-none',
+											'ring-pink-600',
+											'focus-visible:ring-4'
+										)}
 										onClick={() => {
 											navOpen && handleNavToggle();
 										}}
@@ -111,7 +156,26 @@ export const Header: FC = () => {
 										href={item.url}
 										title={item.title}
 										target="_blank"
-										className="flex h-12 w-12 items-center justify-center rounded-full bg-cyan-900 text-2xl text-stone-50 outline-none ring-pink-600 transition-all duration-300 hover:bg-cyan-800 focus-visible:ring-4 active:scale-90 dark:bg-cyan-700 hover:dark:bg-cyan-800"
+										className={c(
+											'flex',
+											'h-12',
+											'w-12',
+											'items-center',
+											'justify-center',
+											'rounded-full',
+											'text-2xl',
+											'bg-cyan-900',
+											'text-stone-50',
+											'ring-pink-600',
+											'transition-all',
+											'duration-300',
+											'outline-none',
+											'focus-visible:ring-4',
+											'active:scale-90',
+											'hover:bg-cyan-800',
+											'dark:bg-cyan-700',
+											'dark:hover:bg-cyan-800'
+										)}
 									>
 										<FontAwesomeIcon icon={item.icon} />
 									</Link>

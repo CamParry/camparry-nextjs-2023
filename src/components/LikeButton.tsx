@@ -1,3 +1,5 @@
+import { c } from '@/utils/c';
+
 type TProps = {
 	rating: number;
 	likes: number;
@@ -30,7 +32,24 @@ export const LikeButton = ({ rating, likes, handleLike }: TProps) => {
 						: 'Like Again'
 				}
 				onClick={handleLike}
-				className="group relative flex h-12 w-12 items-center justify-center gap-2 overflow-hidden rounded-full bg-amber-500 text-3xl text-stone-50 transition-all hover:bg-amber-400 active:scale-110"
+				className={c(
+					'group',
+					'relative',
+					'flex',
+					'h-12',
+					'w-12',
+					'items-center',
+					'justify-center',
+					'gap-2',
+					'overflow-hidden',
+					'rounded-full',
+					'bg-amber-500',
+					'text-3xl',
+					'text-stone-50',
+					'transition-all',
+					'hover:bg-amber-400',
+					'active:scale-110'
+				)}
 			>
 				<div className="">
 					<div className="absolute left-2 top-2 h-8 w-8 -translate-y-px">

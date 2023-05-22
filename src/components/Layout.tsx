@@ -1,6 +1,7 @@
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { useSiteContext } from '@/contexts/Site';
+import { c } from '@/utils/c';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import type { ReactNode } from 'react';
@@ -15,7 +16,20 @@ export const Layout = ({ children }: TProps) => {
 
 	return (
 		<div className={theme === 'dark' ? 'dark' : ''}>
-			<div className="flex min-h-screen flex-col bg-stone-100 px-[5vw] font-body text-slate-700 transition-colors dark:bg-slate-800 dark:text-stone-100">
+			<div
+				className={c(
+					'flex',
+					'min-h-screen',
+					'flex-col',
+					'bg-stone-100',
+					'px-[5vw]',
+					'font-body',
+					'text-slate-700',
+					'transition-colors',
+					'dark:bg-slate-800',
+					'dark:text-stone-100'
+				)}
+			>
 				<Header />
 				<AnimatePresence mode="wait">
 					<motion.main

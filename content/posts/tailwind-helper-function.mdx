@@ -1,0 +1,72 @@
+---
+title: 'A tiny helper function to make Tailwind classes easier to read'
+date: '2023-05-22'
+excerpt:
+    'How to make elements with lots of Tailwind classes easier to read with a
+    simple utility function.'
+cats: ['coding']
+tags: ['TypeScript', 'Tailwind']
+---
+
+Tailwind is an excellent CSS utility library that I use daily on almost every
+project I work on. However, one thing that sometimes annoys me is that it can be
+challenging to read when a lot of classes are applied to one element. For
+example, consider this h2 element directly from my websites posts page.
+
+```typescript
+<h2 className="text-xl text-cyan-800 font-bold leading-tight transition-colors md:text-2xl dark:text-cyan-200 group-hover:text-yellow group-focus:text-yellow">
+	{post.title}
+</h2>
+```
+
+This element has 9 classes applied to it, and it's impossible to read them all
+without horizontally scrolling within your code editor. Additionally, the class
+names blur together, making it difficult to visually distinguish them from each
+other.
+
+## The solution?
+
+An incredibly small utility function…
+
+```typescript
+export const c = (...rest: string[]) => rest.join(' ');
+```
+
+Super basic, right? All it does is use `...` rest syntax to collect the
+arguments, join them with a space and then return the string of classes.
+
+Now you simply pass the classes as arguments, and (providing you have a code
+formatter like Prettier installed) your classes will get automatically wrapped.
+
+```typescript
+<h2
+	className={c(
+		'text-xl',
+		'text-cyan-800',
+		'font-bold',
+		'leading-tight',
+		'transition-colors',
+		'md:text-2xl',
+		'dark:text-cyan-200',
+		'group-hover:text-yellow',
+		'group-focus:text-yellow'
+	)}
+>
+	{post.title}
+</h2>
+```
+
+In my opinion, this is much more readable. Not only is there no need to scroll
+horizontally, but it's also easier to quickly scan and figure out which styles
+are being applied and how they interact with each other.
+
+Another benefit is that because the classes are still within the `className`
+attribute you still get tailwind intellisense on hover. The only downside is
+that Prettier's auto class sorting no longer works, however, once the classes
+are laid out vertically, it is much easier to manually order them.
+
+You could obvisouly give the function a more descriptive name, but since it's so
+simple I like to keep it short and sweet. I would also only use this function
+when an element had enough classes to warrent it, otherwise it's not really
+providing much benefit. Overall I find this one tiny line of code makes reading
+through tailwind classes much easier.

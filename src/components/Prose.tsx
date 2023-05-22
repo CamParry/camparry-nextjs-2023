@@ -1,4 +1,4 @@
-import { cn } from '@/utils/cn';
+import { c } from '@/utils/c';
 import { ReactNode } from 'react';
 
 export const Prose = ({
@@ -10,7 +10,7 @@ export const Prose = ({
 }) => {
 	return (
 		<div
-			className={cn(
+			className={c(
 				'prose',
 				'prose-lg',
 				'md:prose-xl',

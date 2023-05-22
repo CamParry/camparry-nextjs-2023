@@ -1,4 +1,5 @@
 import { useSiteContext } from '@/contexts/Site';
+import { c } from '@/utils/c';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
@@ -21,7 +22,8 @@ export const MDXCode = ({ className, children, ...TProps }: any) => {
 			}}
 			codeTagProps={{
 				style: {
-					fontSize: '1rem'
+					fontSize: '1rem',
+					tabSize: '2'
 				}
 			}}
 		>
@@ -29,7 +31,15 @@ export const MDXCode = ({ className, children, ...TProps }: any) => {
 		</SyntaxHighlighter>
 	) : (
 		<code
-			className="inline-block rounded-lg px-2 font-normal before:content-none after:content-none"
+			className={c(
+				'inline-block',
+				'bg-[#111827]',
+				'rounded-lg',
+				'px-2',
+				'font-normal',
+				'before:content-none',
+				'after:content-none'
+			)}
 			{...TProps}
 		>
 			{children}
