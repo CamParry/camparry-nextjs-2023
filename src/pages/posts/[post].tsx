@@ -25,35 +25,12 @@ interface IParams extends ParsedUrlQuery {
 }
 
 export default function Post({ post }: TProps) {
-	// const router = useRouter();
-	// const { post: postSlug } = router.query;
-	// const [likes, setLikes] = useState(0);
-	// const [rating, setRating] = useState(0);
-
-	// useEffect(() => {
-	// 	(async () => {
-	// 		const res = await fetch(`/api/likes/${postSlug}`);
-	// 		const json = await res.json();
-	// 		setLikes(json?.data?.likesCount ?? 0);
-	// 		setRating(json?.data?.userLikesCount ?? 0);
-	// 	})();
-	// }, [postSlug]);
-
-	// const handleLike = async () => {
-	// 	if (rating < 3) {
-	// 		setRating((r) => r + 1);
-	// 		setLikes((r) => r + 1);
-	// 		await fetch(`/api/likes/${postSlug}`, {
-	// 			method: 'POST'
-	// 		});
-	// 	}
-	// };
 	return (
 		<Content>
 			<NextSeo title={post.title} description={post.excerpt} />
 			<div className="">
 				<div className="mt-8 text-center text-xl">
-					<h1 className="text-3xl md:text-4xl font-bold leading-tight dark:text-stone-200">
+					<h1 className="mx-auto max-w-2xl text-3xl md:text-4xl font-bold leading-snug md:leading-snug dark:text-stone-200">
 						{post.title}
 					</h1>
 				</div>
@@ -76,13 +53,6 @@ export default function Post({ post }: TProps) {
 				<div className="text-center font-bold mt-24">
 					<span>&copy; {format(new Date(), 'Y')} Cam Parry</span>
 				</div>
-				{/* <div className="md:fixed md:right-[5vw] md:top-44">
-					<LikeButton
-						rating={rating}
-						likes={likes}
-						handleLike={handleLike}
-					/>
-				</div> */}
 			</div>
 		</Content>
 	);

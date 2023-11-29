@@ -36,32 +36,30 @@ export const PostItem = ({ post }: TProps) => {
 				<h2
 					className={c(
 						'text-xl',
+						'md:text-2xl',
 						'font-bold',
 						'leading-tight',
-						'text-cyan-800',
 						'transition-colors',
-						'md:text-2xl',
-						'dark:text-cyan-200',
-						'group-hover:text-yellow',
-						'group-focus:text-yellow'
+						'text-cyan-800',
+						'dark:text-cyan-200'
 					)}
 				>
 					{post.title}
 				</h2>
-				<div className="mt-1 flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+				<div className="mt-2 flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
 					<span className="text-sm font-semibold text-pink-600 dark:text-pink-500">
 						{formatDate(post.date)}
 					</span>
 					{post.tags.length > 0 && (
 						<>
-							<span className="h-px w-12 md:h-4 md:w-px bg-stone-200" />
+							<span className="h-px w-12 md:h-4 md:w-px bg-stone-800 dark:bg-stone-200" />
 							<span className="text-sm font-semibold text-pink-600 dark:text-pink-500">
 								{post.tags.join(', ')}
 							</span>
 						</>
 					)}
 				</div>
-				<p className="mt-1 text-lg">{post.excerpt}</p>
+				<p className="mt-2 text-lg">{post.excerpt}</p>
 			</motion.a>
 		</Link>
 	);

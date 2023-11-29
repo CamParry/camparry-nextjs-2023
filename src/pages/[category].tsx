@@ -36,13 +36,10 @@ export default function Writing({ category, posts, tags }: Props) {
 				title={category.title}
 				description={category.description}
 			/>
-			<header className="my-8 text-center space-y-8 text-xl md:my-12">
+			<header className="text-center space-y-8 text-xl my-8 md:my-12">
 				<h1 className="text-3xl font-bold leading-tight">
 					{category.title}
 				</h1>
-				<div className="space-y-2">
-					<MDX source={category.mdx} />
-				</div>
 			</header>
 			{posts.length > 0 ? (
 				<>
