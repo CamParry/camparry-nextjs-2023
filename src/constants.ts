@@ -1,8 +1,7 @@
 import {
 	faGithub,
 	faInstagram,
-	faLinkedinIn,
-	faTwitter
+	faLinkedinIn
 } from '@fortawesome/free-brands-svg-icons';
 
 export const POSTS_DIR = 'content/posts';
@@ -23,11 +22,6 @@ export const MENU = [
 ];
 
 export const SOCIALS = [
-	{
-		title: 'Chat with me on Twitter',
-		url: 'https://twitter.com/camjparry',
-		icon: faTwitter
-	},
 	{
 		title: 'Follow me on Instagram',
 		url: 'https://instagram.com/mrcamparry',
